@@ -1,0 +1,5 @@
+gestion-compte
+mariadb_data/
+parameters.yml
+pod_id.txt
+secret_env
