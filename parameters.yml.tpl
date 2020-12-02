@@ -8,8 +8,8 @@ parameters:
     database_user: __MYSQL_USER__
     database_password: __MYSQL_PASSWORD__
 
-    super_admin.username: coop14
-    super_admin.initial_password: default_password
+    super_admin.username: __ADMIN_USER__
+    super_admin.initial_password: __ADMIN_PASSWORD__
 
     mailer_transport: smtp
     mailer_host: 127.0.0.1

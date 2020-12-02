@@ -32,7 +32,7 @@ else
   fi
 fi
 
-sed "s/__MYSQL_PASSWORD__/$MYSQL_PASSWORD/;s/__MYSQL_USER__/$MYSQL_USER/;s/__MYSQL_DATABASE__/$MYSQL_DATABASE/;s/__SYMFONY_SECRET__/$SYMFONY_SECRET/" parameters.yml.tpl > parameters.yml
+sed "s/__MYSQL_PASSWORD__/$MYSQL_PASSWORD/;s/__MYSQL_USER__/$MYSQL_USER/;s/__MYSQL_DATABASE__/$MYSQL_DATABASE/;s/__SYMFONY_SECRET__/$SYMFONY_SECRET/;s/__ADMIN_USER__/$ADMIN_USER/;s/__ADMIN_PASSWORD__/$ADMIN_PASSWORD/" parameters.yml.tpl > parameters.yml
 
 image_id=$(podman build -q .)
 echo "Will run $image_id"
