@@ -1,13 +1,16 @@
 #!/usr/bin/bash
 
-# most of this should disappear once podman-compose reach maturity
+set -e
+
+# most of this wrapping should disappear once podman-compose reach maturity
 
 if ! test -f secret_env; then
   echo "No file secret_env, please generate one"
   exit 1
+else
+  source secret_env
 fi
 
-source secret_env
 
 pod_id_file=pod_id.txt
 if ! podman pod exists elefant; then
@@ -35,4 +38,5 @@ image_id=$(podman build -q .)
 echo "Will run $image_id"
 container_id=$(podman run --rm --pod-id-file $pod_id_file -d $image_id)
 
+echo "Will now watch logs from $container_id"
 podman logs -f $container_id

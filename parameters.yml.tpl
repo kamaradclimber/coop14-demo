@@ -61,7 +61,7 @@ parameters:
     secret: __SYMFONY_SECRET__
 
     #router https://symfony.com/doc/3.4/console/request_context.html
-    router.request_context.host: membres.coop14.fr
+    router.request_context.host: coop14-demo.familleseux.net
     router.request_context.scheme: https
     router.request_context.base_url:
 
