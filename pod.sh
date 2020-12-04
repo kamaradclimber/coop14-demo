@@ -15,7 +15,7 @@ fi
 pod_id_file=pod_id.txt
 if ! podman pod exists elefant; then
   rm $pod_id_file
-  podman pod create -n elefant --pod-id-file $pod_id_file -p 8000
+  podman pod create -n elefant --pod-id-file $pod_id_file -p 8010-8011
 fi
 pod_id=$(cat $pod_id_file)
 echo "Using pod $pod_id"
@@ -29,6 +29,15 @@ else
   if ! podman ps | grep -q $(echo $mariadb_id | cut -c1-6); then
     echo $mariadb_id crashed quickly after boot
     exit 1
+  fi
+fi
+
+if [[ "$MAILCATCHER" == "1" ]]; then
+  if podman pod top elefant | grep -q mailcatcher; then
+    echo "mailcatcher already running"
+  else
+    mailcatcher_id=$(podman run --pod-id-file $pod_id_file -d mailcatcher-coop14)
+    echo "mailcatcher is running with container id $mailcatcher_id"
   fi
 fi
 
