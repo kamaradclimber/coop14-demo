@@ -19,3 +19,7 @@
 Limitations:
 * Il est possible de créer (créer seulement) des comptes dans Odoo en se connectant à Odoo via l'oauth.
 * Pour le moment, l'instance Odoo de Coop14 permet la création du compte mais aucun droit n'est donné.
+
+References utiles:
+* https://www.odoo.com/fr_FR/forum/aide-1/odoo-oauth-error-3-167744
+* https://github.com/odoo/odoo/blob/338f8d843832c339c52c00c7f4c41b5ab2d696ed/addons/auth_oauth/models/res_users.py#L43
